@@ -3,10 +3,12 @@ const db = require('../dataBase/connection');
 module.exports = {
     async listarUsuarios(request, response) {
         try {
+            const sql = 'select * from usuarios;'
+            const [rows] = await db.query(sql);
             return response.status(200).json({
                 sucesso: true, 
                 mensagem: 'Lista de usuários', 
-                dados: null
+                dados: rows
             });
         } catch (error) {
             return response.status(500).json({
