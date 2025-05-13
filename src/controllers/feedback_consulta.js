@@ -3,11 +3,18 @@ const db = require('../dataBase/connection');
 module.exports = {
     async listarFeedback_consulta(request, response) {
         try {
-            const sql = 'select * from feedback_consulta;'
+
+            const sql = `
+            SELECT fdbk_id, psi_id, usu_id, fdbk_mensagem, 
+            fdbk_data_hora 
+            FROM feedback_consulta;
+            `;
+
             const [rows] = await db.query(sql);
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Lista de feedback_consulta', 
+                mensagem: 'Lista de feedback_consulta',
+                itens: rows.length, 
                 dados: rows
             });
         } catch (error) {
