@@ -10,15 +10,15 @@ router.post('/usuarios', UsuariosController.cadastrarUsuarios);
 router.patch('/usuarios', UsuariosController.editarUsuarios); 
 router.delete('/usuarios', UsuariosController.apagarUsuarios); 
 
-router.get('/perfil_psicologo', Perfil_psicologoController.listarPerfil_psicologo); 
-router.post('/perfil_psicologo', Perfil_psicologoController.cadastrarPerfil_psicologo); 
-router.patch('/perfil_psicologo', Perfil_psicologoController.editarPerfil_psicologo); 
-router.delete('/perfil_psicologo', Perfil_psicologoController.apagarPerfil_psicologo); 
+router.get('/perfil-psicologo', Perfil_psicologoController.listarPerfil_psicologo); 
+router.post('/perfil-psicologo', Perfil_psicologoController.cadastrarPerfil_psicologo); 
+router.patch('/perfil-psicologo', Perfil_psicologoController.editarPerfil_psicologo); 
+router.delete('/perfil-psicologo', Perfil_psicologoController.apagarPerfil_psicologo); 
 
-router.get('/feedback_consulta', Feedback_consultaController.listarFeedback_consulta); 
-router.post('/feedback_consulta', Feedback_consultaController.cadastrarFeedback_consulta); 
-router.patch('/feedback_consulta', Feedback_consultaController.editarFeedback_consulta); 
-router.delete('/feedback_consulta', Feedback_consultaController.apagarFeedback_consulta); 
+router.get('/feedback-consulta', Feedback_consultaController.listarFeedback_consulta); 
+router.post('/feedback-consulta', Feedback_consultaController.cadastrarFeedback_consulta); 
+router.patch('/feedback-consulta', Feedback_consultaController.editarFeedback_consulta); 
+router.delete('/feedback-consulta', Feedback_consultaController.apagarFeedback_consulta); 
 
 
 module.exports = router;

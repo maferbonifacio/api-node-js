@@ -2,12 +2,20 @@ const db = require('../dataBase/connection');
 
 module.exports = {
     async listarPerfil_psicologo(request, response) {
+
         try {
-            const sql = 'select * from perfil_psicologo;'
+
+            const sql = `
+            SELECT psi_id, prf_especialidades, prf_biografia, prf_preco_consulta,
+             prf_crp 
+             FROM perfil_psicologo;
+            `;
+
             const [rows] = await db.query(sql);
             return response.status(200).json({
                 sucesso: true, 
                 mensagem: 'Lista de perfil_psicologo', 
+                itens: rows.length,
                 dados: rows
             });
         } catch (error) {
