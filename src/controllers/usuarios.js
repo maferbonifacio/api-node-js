@@ -30,10 +30,32 @@ module.exports = {
     }, 
     async cadastrarUsuarios(request, response) {
         try {
+
+            const { nome, email, telefone, senha, data_nascimento, cpf, tipo } = request.body;
+            const usu_cpf = 1;
+
+            const sql = `
+            INSERT INTO usuarios
+             (usu_nome, usu_email, usu_telefone, usu_senha, usu_data_nascimento, usu_cpf, usu_tipo) 
+             VALUES
+                (?, ?, ?, ?, ?, ?, ?);
+             `;
+
+             const values = [nome, email, telefone, senha, data_nascimento, cpf, tipo];
+
+             const [result] = await db.query(sql, values);
+
+             const dados = {
+                id: result.insertId,
+                nome,
+                email,
+                tipo
+             };
+
             return response.status(200).json({
                 sucesso: true, 
                 mensagem: 'Cadastro de usuários', 
-                dados: null
+                dados: dados
             });
         } catch (error) {
             return response.status(500).json({
