@@ -27,10 +27,29 @@ module.exports = {
     }, 
     async cadastrarFeedback_consulta(request, response) {
         try {
+
+            const { psi_id, usu_id, mensagem, data_hora } = request.body;
+      
+            const sql = `
+           INSERT INTO feedback_consulta (psi_id, usu_id, fdbk_mensagem, fdbk_data_hora) 
+                VALUES
+                (?, ?, ?, ?);
+             `;
+
+             const values = [psi_id, usu_id, mensagem, data_hora];
+
+             const [result] = await db.query(sql, values);
+
+             const dados = {
+                fdbk_id: result.insertId,
+                mensagem,
+                data_hora
+             };
+
             return response.status(200).json({
                 sucesso: true, 
                 mensagem: 'Cadastro de feedback_consulta', 
-                dados: null
+                dados: dados
             });
         } catch (error) {
             return response.status(500).json({

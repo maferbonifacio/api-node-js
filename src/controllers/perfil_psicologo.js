@@ -28,10 +28,32 @@ module.exports = {
     }, 
     async cadastrarPerfil_psicologo(request, response) {
         try {
+
+            const { especialidades, biografia, preco_consulta, crp } = request.body;
+      
+            const sql = `
+                INSERT INTO perfil_psicologo 
+            (prf_especialidades, prf_biografia, prf_preco_consulta, prf_crp) 
+             VALUES
+                (?, ?, ?, ?);
+             `;
+
+             const values = [especialidades, biografia, preco_consulta, crp];
+
+             const [result] = await db.query(sql, values);
+
+             const dados = {
+                psi_id: result.insertId,
+                especialidades,
+                biografia,
+                preco_consulta,
+                crp
+             };
+
             return response.status(200).json({
                 sucesso: true, 
                 mensagem: 'Cadastro de perfil_psicologo', 
-                dados: null
+                dados: dados
             });
         } catch (error) {
             return response.status(500).json({

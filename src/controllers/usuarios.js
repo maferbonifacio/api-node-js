@@ -32,8 +32,7 @@ module.exports = {
         try {
 
             const { nome, email, telefone, senha, data_nascimento, cpf, tipo } = request.body;
-            const usu_cpf = 1;
-
+      
             const sql = `
             INSERT INTO usuarios
              (usu_nome, usu_email, usu_telefone, usu_senha, usu_data_nascimento, usu_cpf, usu_tipo) 
@@ -46,7 +45,7 @@ module.exports = {
              const [result] = await db.query(sql, values);
 
              const dados = {
-                id: result.insertId,
+                usu_id: result.insertId,
                 nome,
                 email,
                 tipo
