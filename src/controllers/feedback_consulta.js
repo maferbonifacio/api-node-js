@@ -61,11 +61,42 @@ module.exports = {
     }, 
     async editarFeedback_consulta(request, response) {
         try {
-            return response.status(200).json({
-                sucesso: true, 
-                mensagem: 'Alteração no cadastro de feedback_consulta', 
-                dados: null
-            });
+
+                const { psi_id, usu_id, mensagem, data_hora } = request.body;
+    
+                const { fdbk_id } = request.params;
+    
+                const sql = `
+                UPDATE usuarios SET
+                 psi_id = ?, usu_id = ?, fdbk_mensagem = ?, fdbk_data_hora = ?
+                WHERE
+                    fdbk_id = ?;
+                 `;
+    
+                 const values = [ psi_id, usu_id, mensagem, data_hora, fdbk_id ];
+    
+                 const [result] = await db.query(sql, values);
+    
+                 if (result.affectedRows === 0) {
+                    return response.status(404).json({
+                        sucesso: false,
+                        mensagem: `Feedback_consulta ${fdbk_id} não encontrado!`,
+                        dados: null
+                    });
+                 }
+    
+                 const dados = {
+                    fdbk_id,
+                    mensagem,
+                    data_hora
+                 };
+    
+                return response.status(200).json({
+                    sucesso: true, 
+                    mensagem: `Feedback_consulta ${fdbk_id} atualizado com sucesso!`, 
+                    dados
+                });
+
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 

@@ -63,7 +63,7 @@ module.exports = {
                 dados: error.message
             });
         }
-    }, 
+    },
     async editarUsuarios(request, response) {
         try {
 
@@ -78,14 +78,31 @@ module.exports = {
                 usu_id = ?;
              `;
 
-             const values = [ nome, email, telefone, senha, data_nascimento, cpf, tipo ]
+             const values = [ nome, email, telefone, senha, data_nascimento, cpf, tipo, usu_id ];
 
+             const [result] = await db.query(sql, values);
+
+             if (result.affectedRows === 0) {
+                return response.status(404).json({
+                    sucesso: false,
+                    mensagem: `Usuário ${usu_id} não encontrado!`,
+                    dados: null
+                });
+             }
+
+             const dados = {
+                usu_id,
+                nome,
+                email,
+                tipo
+             };
 
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Alteração no cadastro de usuário', 
-                dados: null
+                mensagem: `Usuário ${usu_id} atualizado com sucesso!`, 
+                dados
             });
+
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
