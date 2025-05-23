@@ -67,10 +67,9 @@ module.exports = {
                 const { fdbk_id } = request.params;
     
                 const sql = `
-                UPDATE usuarios SET
+                UPDATE feedback_consulta SET
                  psi_id = ?, usu_id = ?, fdbk_mensagem = ?, fdbk_data_hora = ?
-                WHERE
-                    fdbk_id = ?;
+                 WHERE fdbk_id = ?;
                  `;
     
                  const values = [ psi_id, usu_id, mensagem, data_hora, fdbk_id ];
@@ -107,11 +106,30 @@ module.exports = {
     }, 
     async apagarFeedback_consulta(request, response) {
         try {
+
+            const { fdbk_id } = request.params;
+
+            const sql = `DELETE FROM feedback_consulta WHERE fdbk_id = ?`;
+
+            const values = [fdbk_id];
+
+            const [result] = await db.query(sql, values);
+
+            if (result.affectedRows === 0) {
+                return response.status(404).json({
+                    sucesso: false,
+                    mensagem: `Feedback_consulta ${fdbk_id} não encontrado!`,
+                    dados: null
+                });
+             }
+
             return response.status(200).json({
                 sucesso: true, 
-                mensagem: 'Exclusão de feedback_consulta', 
+                mensagem: `Feedback_consulta ${fdbk_id} excluído com sucesso!`, 
                 dados: null
             });
+
+
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 

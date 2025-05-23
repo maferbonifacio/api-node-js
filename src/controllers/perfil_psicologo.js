@@ -71,10 +71,9 @@ module.exports = {
             const { psi_id } = request.params;
 
             const sql = `
-            UPDATE usuarios SET
+            UPDATE perfil_psicologo SET
              prf_especialidades = ?, prf_biografia = ?, prf_preco_consulta = ?, prf_crp = ?
-            WHERE
-                psi_id = ?;
+            WHERE psi_id = ?;
              `;
 
              const values = [ especialidades, biografia, preco_consulta, crp, psi_id ];
@@ -113,11 +112,29 @@ module.exports = {
     }, 
     async apagarPerfil_psicologo(request, response) {
         try {
-            return response.status(200).json({
+
+            const { psi_id } = request.params;
+
+            const sql = `DELETE FROM perfil_psicologo WHERE psi_id = ?`;
+
+            const values = [psi_id];
+
+            const [result] = await db.query(sql, values);
+
+            if (result.affectedRows === 0) {
+                return response.status(404).json({
+                    sucesso: false,
+                    mensagem: `Perfil_psicologo ${psi_id} não encontrado!`,
+                    dados: null
+                });
+             }
+
+             return response.status(500).json({
                 sucesso: true, 
-                mensagem: 'Exclusão de perfil_psicologo', 
+                mensagem: `Perfil_psicologo ${psi_id} excluído com sucesso!`,
                 dados: null
             });
+
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
