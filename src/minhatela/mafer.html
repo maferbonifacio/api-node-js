@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refúgio Interior</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        /* Parte de cima do header - azul escuro */
+        .header-top {
+            background-color: #7FA9C9; /* azul escuro da imagem */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-top img {
+            height: 80px;
+        }
+
+        .header-top p {
+            color: #ffffff;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Parte de baixo do header - azul claro */
+        .header-bottom {
+            background-color: #BFD7EA; /* azul claro da imagem */
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            background-color: #ffffff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section h2 {
+            color: #517CA8;
+            margin-bottom: 10px;
+            font-size: 40px;
+        }
+
+        section p, section ul {
+            font-size: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        hr {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        .nossos-valores ul {
+            padding-left: 20px;
+        }
+
+        .nossos-valores ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-top">
+            <img src="refugiologo.png" alt="Logo Refúgio Interior">
+            <p>refugiointerior@gmail.com</p>
+        </div>
+        <div class="header-bottom">
+            <nav>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Publicações</a></li>
+                    <li><a href="#">Redes de apoio</a></li>
+                    <li><a href="#">Psicólogos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="quem-somos">
+            <h2>Quem Somos</h2>
+            <p>O Refúgio Interior surgiu como uma iniciativa desenvolvida por alunos do 3º ano do curso técnico em Desenvolvimento de Sistemas da Escola Técnica Estadual Professor Massuyuki Kawano, em Tupã (SP). Nosso objetivo é aliar a tecnologia à promoção do bem-estar emocional, oferecendo um ambiente acessível e funcional tanto para psicólogos quanto para usuários.</p>
+            <hr>
+        </section>
+
+        <section class="nossa-missao">
+            <h2>Nossa missão</h2>
+            <p>Temos a missão de promover a saúde mental por meio da tecnologia, oferecendo um sistema digital intuitivo e acolhedor que facilite o acesso à informação, ao acompanhamento psicológico e ao fortalecimento de vínculos entre profissionais e pacientes.</p>
+            <hr>
+        </section>
+
+        <section class="nossos-valores">
+            <h2>Nossos Valores</h2>
+            <ul>
+                <li><strong>Empatia:</strong> Acreditamos na importância de ouvir e acolher o outro com respeito e compreensão.</li>
+                <li><strong>Compromisso com a saúde mental:</strong> Valorizamos o cuidado psicológico como parte essencial do bem-estar humano.</li>
+                <li><strong>Inovação com propósito:</strong> Utilizamos a tecnologia para criar soluções que realmente impactam a vida das pessoas.</li>
+                <li><strong>Acessibilidade:</strong> Trabalhamos para que o Refúgio Interior seja um espaço digital seguro e acessível para todos.</li>
+                <li><strong>Colaboração:</strong> Somos um grupo unido por um objetivo comum, construindo juntos um projeto com significado social.</li>
+            </ul>
+            <hr>
+        </section>
+    </main>
+
+</body>
+</html>
