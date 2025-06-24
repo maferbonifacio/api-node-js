@@ -135,6 +135,7 @@ module.exports = {
                 mensagem: `Usuário ${usu_id} excluído com sucesso!`, 
                 dados: null
             });
+            
         } catch (error) {
             return response.status(500).json({
                 sucesso: false, 
