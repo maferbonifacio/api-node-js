@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks - Refúgio Interior</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f8ff;
+        }
+
+        .cabecalho {
+            background-color: #a3bde3;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #7c9cc9;
+        }
+
+        .titulo {
+            text-align: center;
+            margin: 30px 0 20px;
+            font-size: 2.5em;
+            color: #4a6fa5;
+            text-shadow: 1px 1px 2px #ccc;
+        }
+
+        .area-feedbacks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 30px 50px;
+        }
+
+        .caixa-feedback {
+            display: flex;
+            background-color: #e6f0fa;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+        }
+
+        .avatar {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #b3d1f2;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .conteudo-feedback {
+            flex-grow: 1;
+        }
+
+        .linha-topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .nome {
+            font-weight: bold;
+            color: #334e73;
+            font-size: 1em;
+        }
+
+        .data {
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .estrelas {
+            color: #ffc107;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .comentario {
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.4em;
+        }
+
+        @media (max-width: 600px) {
+            .titulo {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="refugiologo.png" alt="Logo Refúgio Interior">
+            <span>Refúgio Interior</span>
+        </div>
+        <nav class="menu">
+            <a href="#">Início</a>
+            <a href="#">Publicações</a>
+            <a href="#">Redes de apoio</a>
+            <a href="#">Psicólogos</a>
+        </nav>
+    </header>
+
+    <h1 class="titulo">Feedbacks</h1>
+
+    <section class="area-feedbacks">
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Celina</div>
+                    <div class="data">01/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★☆</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Heitor</div>
+                    <div class="data">02/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★★</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Aline</div>
+                    <div class="data">03/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★☆</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+        
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Isaac</div>
+                    <div class="data">04/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★☆</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Eva</div>
+                    <div class="data">05/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★★</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Dafine</div>
+                    <div class="data">06/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★★</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Carla</div>
+                    <div class="data">07/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★☆</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+        <div class="caixa-feedback">
+            <div class="avatar"></div>
+            <div class="conteudo-feedback">
+                <div class="linha-topo">
+                    <div class="nome">Por Talita</div>
+                    <div class="data">08/06/2025</div>
+                </div>
+                <div class="estrelas">★★★★★</div>
+                <div class="comentario">xxxxxxxxxxxxxxxxxxxxxxx</div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
